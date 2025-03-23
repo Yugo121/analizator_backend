@@ -10,9 +10,10 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 IInterfaceServiceRegistration infrastructureService = new InterfaceServiceRegistration();
-IApplicationServiceRegistration applicationService = new ApplicationServiceRegistration();
-
 infrastructureService.AddInfrastructure(builder.Services, builder.Configuration);
+
+IApplicationServiceRegistration applicationService = new ApplicationServiceRegistration();
+applicationService.AddApplicationServices(builder.Services, builder.Configuration);
 
 var app = builder.Build();
 
